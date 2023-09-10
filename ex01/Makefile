@@ -1,6 +1,6 @@
 PROG := ex01
 
-COMPILER := g++
+COMPILER := c++
 FLAGS := -Wall -Wextra -Werror
 FLAGS_ADD := -std=c++98
 SRCS =	main.cpp \
