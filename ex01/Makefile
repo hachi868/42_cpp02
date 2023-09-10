@@ -2,14 +2,17 @@ PROG := ex01
 
 COMPILER := g++
 FLAGS := -Wall -Wextra -Werror
-FLAGS_ALT := -std=c++98
+FLAGS_ADD := -std=c++98
 SRCS =	main.cpp \
 		Fixed.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
+%.o: %.cpp
+	$(COMPILER) $(FLAGS) $(FLAGS_ADD) -c $< -o $@
+
 $(PROG): $(OBJS)
-	$(COMPILER) $(FLAGS) -o $@ $(OBJS)
+	$(COMPILER) $(FLAGS) $(FLAGS_ADD) -o $@ $(OBJS)
 
 all: $(PROG)
 
