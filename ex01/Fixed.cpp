@@ -24,7 +24,7 @@ Fixed::Fixed(const float num_fl) : _rawBit((int)roundf(num_fl * (1 << this->_bit
 	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed &Fixed::operator=(const Fixed &obj)
+Fixed &Fixed::operator = (const Fixed &obj)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->setRawBits(obj.getRawBits());
@@ -60,6 +60,7 @@ int Fixed::toInt(void) const
 
 std::ostream &operator << (std::ostream &c_out, const Fixed &obj)
 {
+	//std::cout << "(overload of the insertion («) operator called)";
 	c_out << obj.toFloat();
 	return (c_out);
 }
