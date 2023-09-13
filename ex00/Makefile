@@ -1,4 +1,4 @@
-PROG := ex00
+PROG := a.out
 
 COMPILER := c++
 FLAGS := -Wall -Wextra -Werror
