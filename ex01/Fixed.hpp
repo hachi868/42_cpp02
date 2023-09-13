@@ -1,8 +1,23 @@
-//
-// Created by hco on 2023/09/08.
-//
-
 #ifndef __FIXED_H__
 #define __FIXED_H__
+
+class Fixed {
+public:
+	Fixed();
+	Fixed(const Fixed &obj);
+	Fixed(const int num_i);
+	Fixed(const float num_fl);
+	Fixed &operator = (const Fixed &obj);
+	~Fixed();
+	int getRawBits(void) const;
+	void setRawBits(int const raw);
+	float toFloat(void) const;
+	int toInt(void) const;
+private:
+	int _rawBit;
+	static const int	_bitsFra;
+};
+
+std::ostream &operator << (std::ostream &c_out, const Fixed &obj);
 
 #endif //__FIXED_H__
