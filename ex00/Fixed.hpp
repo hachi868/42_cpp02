@@ -4,13 +4,13 @@
 class Fixed {
 public:
 	Fixed();
-	Fixed::Fixed(const Fixed &obj);
+	Fixed(const Fixed &obj);
 	Fixed &operator = (const Fixed &obj);
 	~Fixed();
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 private:
-	int	_numFixed;
+	int _rawBit;
 	static const int	_bitsFra;
 
 };
