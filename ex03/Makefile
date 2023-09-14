@@ -1,4 +1,4 @@
-PROG := ex03
+PROG := bsp
 
 COMPILER := c++
 FLAGS := -Wall -Wextra -Werror
