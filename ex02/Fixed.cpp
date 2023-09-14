@@ -1,7 +1,9 @@
 #include <iostream>
+#include <cmath>
 #include "Fixed.hpp"
 
 const int Fixed::_bitsFra = 8;
+const std::string	_message_equal = "equal";
 
 Fixed::Fixed() : _rawBit(0)
 {
@@ -58,63 +60,96 @@ int Fixed::toInt(void) const
 	return (this->_rawBit >> this->_bitsFra);
 }
 
-bool &Fixed::operator > (const Fixed &obj) const
+//std::string Fixed::getMessageEq(void) const
+//{
+//	return (this->_message_equal);
+//}
+
+bool Fixed::operator > (const Fixed &obj) const
 {
+	if (this->toFloat() > obj.toFloat())
+		return (true);
 	return (false);
 }
-bool &Fixed::operator < (const Fixed &obj) const
+bool Fixed::operator < (const Fixed &obj) const
 {
+	if (this->toFloat() < obj.toFloat())
+		return (true);
 	return (false);
 }
-bool &Fixed::operator >= (const Fixed &obj) const
+//bool &Fixed::operator >= (const Fixed &obj) const
+//{
+//	return (false);
+//}
+//bool &Fixed::operator <= (const Fixed &obj) const
+//{
+//	return (false);
+//}
+bool Fixed::operator == (const Fixed &obj) const
 {
+	if (this->toFloat() == obj.toFloat())
+		return (true);
 	return (false);
 }
-bool &Fixed::operator <= (const Fixed &obj) const
+//bool &Fixed::operator != (const Fixed &obj) const
+//{
+//	return (false);
+//}
+//
+//Fixed &Fixed::operator + (const Fixed &obj);
+//{
+//	return (*this);
+//}
+//Fixed &Fixed::operator - (const Fixed &obj)
+//{
+//	return (*this);
+//}
+//Fixed &Fixed::operator * (const Fixed &obj)
+//{
+//	return (*this);
+//}
+//Fixed &Fixed::operator / (const Fixed &obj)
+//{
+//	return (*this);
+//}
+//
+//Fixed &Fixed::operator ++ (const Fixed &obj)
+//{
+//	return (*this);
+//}
+//Fixed &Fixed::operator -- (const Fixed &obj)
+//{
+//	return (*this);
+//}
+//Fixed &Fixed::operator ++ (void)
+//{
+//	return (*this);
+//}
+//Fixed &Fixed::operator -- (void)
+//{
+//	return (*this);
+//}
+
+Fixed &Fixed::min(Fixed &obj1, Fixed &obj2)
 {
-	return (false);
-}
-bool &Fixed::operator == (const Fixed &obj) const
-{
-	return (false);
-}
-bool &Fixed::operator != (const Fixed &obj) const
-{
-	return (false);
+	if (obj1 == obj2)
+		return (getMessageEq());
+	return ((obj1 < obj2) ? obj1 : obj2);
 }
 
-Fixed &Fixed::operator + (const Fixed &obj);
+const Fixed &Fixed::min(const Fixed &obj1, const Fixed &obj2)
 {
-	return (*this);
-}
-Fixed &Fixed::operator - (const Fixed &obj)
-{
-	return (*this);
-}
-Fixed &Fixed::operator * (const Fixed &obj)
-{
-	return (*this);
-}
-Fixed &Fixed::operator / (const Fixed &obj)
-{
-	return (*this);
+	return ((obj1 < obj2) ? obj1 : obj2);
 }
 
-Fixed &Fixed::operator ++ (const Fixed &obj)
+Fixed &Fixed::max(Fixed &obj1, Fixed &obj2)
 {
-	return (*this);
+	return ((obj1 > obj2) ? obj1 : obj2);
 }
-Fixed &Fixed::operator -- (const Fixed &obj)
+
+const Fixed &Fixed::max(const Fixed &obj1, const Fixed &obj2)
 {
-	return (*this);
-}
-Fixed &Fixed::operator ++ (void)
-{
-	return (*this);
-}
-Fixed &Fixed::operator -- (void)
-{
-	return (*this);
+	return ((obj1 > obj2) ? obj1 : obj2);
 }
 
 std::ostream &operator << (std::ostream &c_out, const Fixed &obj)
