@@ -3,7 +3,7 @@
 #include "Fixed.hpp"
 
 const int Fixed::_bitsFra = 8;
-const std::string	_message_equal = "equal";
+const std::string	Fixed::_message_equal = "(The two arguments have the same value.) : ";
 
 Fixed::Fixed() : _rawBit(0)
 {
@@ -60,10 +60,10 @@ int Fixed::toInt(void) const
 	return (this->_rawBit >> this->_bitsFra);
 }
 
-//std::string Fixed::getMessageEq(void) const
-//{
-//	return (this->_message_equal);
-//}
+std::string Fixed::getMessageEq(void)
+{
+	return (_message_equal);
+}
 
 bool Fixed::operator > (const Fixed &obj) const
 {
@@ -133,22 +133,28 @@ bool Fixed::operator == (const Fixed &obj) const
 Fixed &Fixed::min(Fixed &obj1, Fixed &obj2)
 {
 	if (obj1 == obj2)
-		return (getMessageEq());
+		std::cout << getMessageEq();
 	return ((obj1 < obj2) ? obj1 : obj2);
 }
 
 const Fixed &Fixed::min(const Fixed &obj1, const Fixed &obj2)
 {
+	if (obj1 == obj2)
+		std::cout << getMessageEq();
 	return ((obj1 < obj2) ? obj1 : obj2);
 }
 
 Fixed &Fixed::max(Fixed &obj1, Fixed &obj2)
 {
+	if (obj1 == obj2)
+		std::cout << getMessageEq();
 	return ((obj1 > obj2) ? obj1 : obj2);
 }
 
 const Fixed &Fixed::max(const Fixed &obj1, const Fixed &obj2)
 {
+	if (obj1 == obj2)
+		std::cout << getMessageEq();
 	return ((obj1 > obj2) ? obj1 : obj2);
 }
 
