@@ -71,31 +71,42 @@ bool Fixed::operator > (const Fixed &obj) const
 		return (true);
 	return (false);
 }
+
 bool Fixed::operator < (const Fixed &obj) const
 {
 	if (this->toFloat() < obj.toFloat())
 		return (true);
 	return (false);
 }
-//bool &Fixed::operator >= (const Fixed &obj) const
-//{
-//	return (false);
-//}
-//bool &Fixed::operator <= (const Fixed &obj) const
-//{
-//	return (false);
-//}
+
+bool Fixed::operator >= (const Fixed &obj) const
+{
+	if (this->toFloat() >= obj.toFloat())
+		return (true);
+	return (false);
+}
+
+bool Fixed::operator <= (const Fixed &obj) const
+{
+	if (this->toFloat() <= obj.toFloat())
+		return (true);
+	return (false);
+}
+
 bool Fixed::operator == (const Fixed &obj) const
 {
 	if (this->toFloat() == obj.toFloat())
 		return (true);
 	return (false);
 }
-//bool &Fixed::operator != (const Fixed &obj) const
-//{
-//	return (false);
-//}
-//
+
+bool Fixed::operator != (const Fixed &obj) const
+{
+	if (this->toFloat() != obj.toFloat())
+		return (true);
+	return (false);
+}
+
 //Fixed &Fixed::operator + (const Fixed &obj);
 //{
 //	return (*this);
