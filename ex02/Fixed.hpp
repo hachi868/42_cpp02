@@ -27,10 +27,10 @@ public:
 	float operator * (const Fixed &obj);
 	float operator / (const Fixed &obj);
 
-//	Fixed &operator ++ (const Fixed &obj);
-//	Fixed &operator -- (const Fixed &obj);
-//	Fixed &operator ++ (void);
-//	Fixed &operator -- (void);
+	Fixed operator ++ (int num);
+	Fixed operator -- (int num);
+	Fixed &operator ++ (void);
+	Fixed &operator -- (void);
 
 	static Fixed &min(Fixed &obj1, Fixed &obj2);
 	static const Fixed &min(const Fixed &obj1, const Fixed &obj2);

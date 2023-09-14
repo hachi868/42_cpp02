@@ -7,40 +7,40 @@ const std::string	Fixed::_message_equal = "(The two arguments have the same valu
 
 Fixed::Fixed() : _rawBit(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	//std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &obj)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	//std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
 }
 
 Fixed::Fixed(const int num_i) : _rawBit(num_i << this->_bitsFra)
 {
-	std::cout << "Int constructor called" << std::endl;
+	//std::cout << "Int constructor called" << this -> getRawBits() << std::endl;
 }
 
-Fixed::Fixed(const float num_fl) : _rawBit((int)roundf(num_fl * (1 << this->_bitsFra)))
+Fixed::Fixed(const float num_fl) : _rawBit(roundf(num_fl * (1 << this->_bitsFra)))
 {
-	std::cout << "Float constructor called" << std::endl;
+	//std::cout << "Float constructor called" << this -> getRawBits() << std::endl;
 }
 
 Fixed &Fixed::operator = (const Fixed &obj)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	//std::cout << "Copy assignment operator called" << std::endl;
 	this->setRawBits(obj.getRawBits());
 	return (*this);
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const
 {
-	//std::cout << "getRawBits member function called" << std::endl;
+	//std::cout << "getRawBits member function called : " << this->_rawBit << std::endl;
 	return (this->_rawBit);
 }
 
@@ -129,22 +129,30 @@ float Fixed::operator / (const Fixed &obj)
 	return (this->toFloat() / obj.toFloat());
 }
 
-//Fixed &Fixed::operator ++ (const Fixed &obj)
-//{
-//	return (*this);
-//}
-//Fixed &Fixed::operator -- (const Fixed &obj)
-//{
-//	return (*this);
-//}
-//Fixed &Fixed::operator ++ (void)
-//{
-//	return (*this);
-//}
-//Fixed &Fixed::operator -- (void)
-//{
-//	return (*this);
-//}
+Fixed Fixed::operator ++ (int num)
+{
+	(void)num;
+	Fixed tmp = Fixed(*this);
+	this->setRawBits(this->getRawBits() + (1 << this->_bitsFra));
+	return (tmp);
+}
+Fixed Fixed::operator -- (int num)
+{
+	(void)num;
+	Fixed tmp = Fixed(*this);
+	this->setRawBits(this->getRawBits() - (1 << this->_bitsFra));
+	return (tmp);
+}
+Fixed &Fixed::operator ++ (void)
+{
+	this->setRawBits(this->getRawBits() + (1 << this->_bitsFra));
+	return (*this);
+}
+Fixed &Fixed::operator -- (void)
+{
+	this->setRawBits(this->getRawBits() - (1 << this->_bitsFra));
+	return (*this);
+}
 
 Fixed &Fixed::min(Fixed &obj1, Fixed &obj2)
 {
