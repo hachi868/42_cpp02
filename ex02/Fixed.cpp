@@ -109,7 +109,7 @@ bool Fixed::operator != (const Fixed &obj) const
 
 float Fixed::operator + (const Fixed &obj)
 {
-return (this->toFloat() + obj.toFloat());
+	return (this->toFloat() + obj.toFloat());
 }
 
 float Fixed::operator - (const Fixed &obj)
