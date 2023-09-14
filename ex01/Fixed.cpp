@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "Fixed.hpp"
 
 const int Fixed::_bitsFra = 8;
