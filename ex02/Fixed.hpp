@@ -22,11 +22,11 @@ public:
 	bool operator == (const Fixed &obj) const;
 	bool operator != (const Fixed &obj) const;
 
-//	Fixed &operator + (const Fixed &obj);
-//	Fixed &operator - (const Fixed &obj);
-//	Fixed &operator * (const Fixed &obj);
-//	Fixed &operator / (const Fixed &obj);
-//
+	float operator + (const Fixed &obj);
+	float operator - (const Fixed &obj);
+	float operator * (const Fixed &obj);
+	float operator / (const Fixed &obj);
+
 //	Fixed &operator ++ (const Fixed &obj);
 //	Fixed &operator -- (const Fixed &obj);
 //	Fixed &operator ++ (void);

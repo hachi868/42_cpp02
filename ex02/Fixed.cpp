@@ -107,23 +107,28 @@ bool Fixed::operator != (const Fixed &obj) const
 	return (false);
 }
 
-//Fixed &Fixed::operator + (const Fixed &obj);
-//{
-//	return (*this);
-//}
-//Fixed &Fixed::operator - (const Fixed &obj)
-//{
-//	return (*this);
-//}
-//Fixed &Fixed::operator * (const Fixed &obj)
-//{
-//	return (*this);
-//}
-//Fixed &Fixed::operator / (const Fixed &obj)
-//{
-//	return (*this);
-//}
-//
+float Fixed::operator + (const Fixed &obj)
+{
+return (this->toFloat() + obj.toFloat());
+}
+
+float Fixed::operator - (const Fixed &obj)
+{
+	return (this->toFloat() - obj.toFloat());
+}
+
+float Fixed::operator * (const Fixed &obj)
+{
+	return (this->toFloat() * obj.toFloat());
+}
+
+float Fixed::operator / (const Fixed &obj)
+{
+	if (obj.toFloat() == 0)
+		std::cout << "(division by 0) : ";
+	return (this->toFloat() / obj.toFloat());
+}
+
 //Fixed &Fixed::operator ++ (const Fixed &obj)
 //{
 //	return (*this);
