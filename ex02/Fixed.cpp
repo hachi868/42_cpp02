@@ -133,24 +133,24 @@ Fixed Fixed::operator ++ (int num)
 {
 	(void)num;
 	Fixed tmp = Fixed(*this);
-	this->setRawBits(this->getRawBits() + (1 << this->_bitsFra));
+	this->setRawBits(this->getRawBits() + 1);
 	return (tmp);
 }
 Fixed Fixed::operator -- (int num)
 {
 	(void)num;
 	Fixed tmp = Fixed(*this);
-	this->setRawBits(this->getRawBits() - (1 << this->_bitsFra));
+	this->setRawBits(this->getRawBits() - 1);
 	return (tmp);
 }
 Fixed &Fixed::operator ++ (void)
 {
-	this->setRawBits(this->getRawBits() + (1 << this->_bitsFra));
+	this->setRawBits(this->getRawBits() + 1);
 	return (*this);
 }
 Fixed &Fixed::operator -- (void)
 {
-	this->setRawBits(this->getRawBits() - (1 << this->_bitsFra));
+	this->setRawBits(this->getRawBits() - 1);
 	return (*this);
 }
 
