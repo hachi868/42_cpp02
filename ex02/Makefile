@@ -1,4 +1,4 @@
-PROG := ex02
+PROG := ./a.out
 
 COMPILER := c++
 FLAGS := -Wall -Wextra -Werror
