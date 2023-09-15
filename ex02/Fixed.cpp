@@ -2,10 +2,10 @@
 #include <cmath>
 #include "Fixed.hpp"
 
-const int Fixed::_bitsFra = 8;
+const int Fixed::_digitBits = 8;
 const std::string	Fixed::_message_equal = "(The two arguments have the same value.) : ";
 
-Fixed::Fixed() : _rawBit(0)
+Fixed::Fixed() : _rawNum(0)
 {
 	//std::cout << "Default constructor called" << std::endl;
 }
@@ -16,12 +16,12 @@ Fixed::Fixed(const Fixed &obj)
 	*this = obj;
 }
 
-Fixed::Fixed(const int num_i) : _rawBit(num_i << this->_bitsFra)
+Fixed::Fixed(const int num_i) : _rawNum(num_i << this->_digitBits)
 {
 	//std::cout << "Int constructor called" << this -> getRawBits() << std::endl;
 }
 
-Fixed::Fixed(const float num_fl) : _rawBit(roundf(num_fl * (1 << this->_bitsFra)))
+Fixed::Fixed(const float num_fl) : _rawNum(roundf(num_fl * (1 << this->_digitBits)))
 {
 	//std::cout << "Float constructor called" << this -> getRawBits() << std::endl;
 }
@@ -40,24 +40,24 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits(void) const
 {
-	//std::cout << "getRawBits member function called : " << this->_rawBit << std::endl;
-	return (this->_rawBit);
+	//std::cout << "getRawBits member function called : " << this->_rawNum << std::endl;
+	return (this->_rawNum);
 }
 
 void Fixed::setRawBits(int const raw)
 {
 	//std::cout << "setRawBits member function called" << std::endl;
-	this->_rawBit = raw;
+	this->_rawNum = raw;
 }
 
 float Fixed::toFloat(void) const
 {
-	return ((float)this->_rawBit / (1 << this->_bitsFra));
+	return ((float)this->_rawNum / (1 << this->_digitBits));
 }
 
 int Fixed::toInt(void) const
 {
-	return (this->_rawBit >> this->_bitsFra);
+	return (this->_rawNum >> this->_digitBits);
 }
 
 std::string Fixed::getMessageEq(void)

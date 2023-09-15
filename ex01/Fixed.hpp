@@ -14,8 +14,8 @@ public:
 	float toFloat(void) const;
 	int toInt(void) const;
 private:
-	int _rawBit;
-	static const int	_bitsFra;
+	int _rawNum;
+	static const int	_digitBits;
 };
 
 std::ostream &operator << (std::ostream &c_out, const Fixed &obj);

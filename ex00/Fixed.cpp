@@ -1,9 +1,9 @@
 #include <iostream>
 #include "Fixed.hpp"
 
-const int Fixed::_bitsFra = 8;
+const int Fixed::_digitBits = 8;
 
-Fixed::Fixed() : _rawBit(0)
+Fixed::Fixed() : _rawNum(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -29,11 +29,11 @@ Fixed::~Fixed()
 int Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (this->_rawBit);
+	return (this->_rawNum);
 }
 
 void Fixed::setRawBits(int const raw)
 {
 	//std::cout << "setRawBits member function called" << std::endl;
-	this->_rawBit = raw;
+	this->_rawNum = raw;
 }

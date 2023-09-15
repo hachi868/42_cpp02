@@ -38,8 +38,8 @@ public:
 	static const Fixed &max(const Fixed &obj1, const Fixed &obj2);
 
 private:
-	int _rawBit;
-	static const int	_bitsFra;
+	int _rawNum;
+	static const int	_digitBits;
 	static const std::string	_message_equal;
 };
 

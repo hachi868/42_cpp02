@@ -10,8 +10,8 @@ public:
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 private:
-	int _rawBit;
-	static const int	_bitsFra;
+	int _rawNum;
+	static const int	_digitBits;
 
 };
 
